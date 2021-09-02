@@ -1,0 +1,3 @@
+1. Crear un índice del tipo conveniente sobre las columnas A y otro sobre la columna B
+2. Programar el cron a una hora que no repercuta negativamente
+3. Analizar las consultas del cron para ver si se pueden agilizar

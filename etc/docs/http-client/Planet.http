@@ -1,0 +1,16 @@
+
+GET https://localhost/planets/1
+Content-Type: application/ld+json
+
+###
+
+POST https://localhost/planets
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "name",
+  "rotation_period": 2,
+  "orbital_period": 3,
+  "diameter": 4
+}

@@ -1,0 +1,13 @@
+
+GET https://localhost/api/provinces
+Content-Type: application/ld+json
+
+###
+
+GET https://localhost/api/provinces?page=1&itemsPerPage=30
+Content-Type: application/ld+json
+
+###
+
+GET https://localhost/api/provinces/{{provinceId}}
+Content-Type: application/ld+json

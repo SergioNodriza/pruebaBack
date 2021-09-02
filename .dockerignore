@@ -1,0 +1,15 @@
+/.env.local
+/.composer
+/.git
+/.idea
+/var
+/.env.*.local
+/.env.local.php
+/_local_storage
+/_local_storage_test
+/etc
+!/etc/infrastructure
+!/etc/data
+/config/jwt/*.pem
+.local
+/etc/data/dumps

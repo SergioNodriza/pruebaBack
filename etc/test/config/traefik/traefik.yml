@@ -1,0 +1,38 @@
+providers:
+    file:
+        directory: "/etc/traefik/config/"
+    docker: {}
+
+entryPoints:
+    http:
+        address: ":80"
+    https:
+        address: ":443"
+    mysql:
+        address: ":3306"
+    localstack-edge:
+        address: ":4566"
+    postgres:
+        address: ":5432"
+    supervisor:
+        address: ":9001"
+    rabbit-management:
+        address: ":15672"
+    dynamodb:
+        address: ":8008"
+
+certificatesResolvers:
+    letsencrypt:
+        acme:
+            email: "samuel.gracia@nodrizatech.com"
+            storage: "/etc/traefik/acme.json"
+            httpChallenge:
+                entrypoint: http
+            # testing server:
+            # caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+
+api:
+    dashboard: true
+
+log:
+    level: debug

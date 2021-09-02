@@ -1,0 +1,13 @@
+
+GET https://localhost/api/cities
+Content-Type: application/ld+json
+
+###
+
+GET https://localhost/api/cities?page=1&itemsPerPage=30
+Content-Type: application/ld+json
+
+###
+
+GET https://localhost/api/cities/{{cityId}}
+Content-Type: application/ld+json

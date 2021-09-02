@@ -1,0 +1,46 @@
+version: '3.3'
+
+services:
+  prueba-back-api:
+    container_name: prueba-back-api
+    build: .
+    ports:
+      - 80:80
+      - 443:443
+      - 9001:9001
+    volumes:
+      - .:/var/www/service
+      - ~/.composer/:/home/user/.composer/
+    depends_on:
+      - prueba-back-postgres
+    environment:
+      - APP_ENV=dev
+      - SUPERVISOR_USERNAME=user
+      - SUPERVISOR_PASSWORD=pass
+      - SUPERVISOR_PORT=127.0.0.1:9001
+      - COMPOSER_MEMORY_LIMIT=-1
+      - AUTOSTART=${API_AUTOSTART:-crond}
+    networks:
+      - prueba-back-network
+
+
+  prueba-back-postgres:
+    container_name: prueba-back-postgres
+    image: postgres:11.4
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=prueba-back
+      - POSTGRES_USER=prueba-back
+      - POSTGRES_PASSWORD=prueba-back-pass
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - prueba-back-network
+
+volumes:
+  postgres:
+
+networks:
+  prueba-back-network:
+    external: true

@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    # disable captcha in production environment
+    Oniad\Infrastructure\Service\Captcha\CaptchaHeaderEventSubscriber:
+        arguments:
+            $dryrun: false
+
+    audiences.default:
+        class: Oniad\Auth\Audiences\BaseAudience
+        arguments:
+            $name: '%env(AUDIENCE_PLATFORM_NAME)%'
+            $notifyUrl: '%env(AUDIENCE_PLATFORM_NOTIFY_URL)%'
+            $redirectUrl: '%env(AUDIENCE_PLATFORM_REDIRECT_URL)%'
+            $authorizationUrl: '%env(AUDIENCE_PLATFORM_AUTHORIZATION_URL)%'
+            $authenticateOnRegister: false
+        tags: [ 'authorization.provider','authorization.audience' ]

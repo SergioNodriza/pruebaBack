@@ -1,0 +1,31 @@
+
+GET https://localhost/api/properties/{{propertyId}}/images
+Content-Type: application/ld+json
+
+###
+
+GET https://localhost/api/properties/{{propertyId}}/images/profile_pic
+Content-Type: application/ld+json
+
+###
+
+POST https://localhost/api/properties/{{propertyId}}/images
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="fileName"; filename="fixtures/image1.png"
+Content-Type: image/png
+
+< fixtures/image1.png
+
+#--boundary
+#Content-Disposition: form-data; name="fileName2"; filename="fixtures/image2.png"
+#Content-Type: image/jpeg
+
+#< fixtures/image2.png
+
+--boundary--
+
+###
+
+DELETE https://localhost/api/properties/{{propertyId}}/images/d9a4dd86-82d1-4f24-811a-498b4f9a817e
